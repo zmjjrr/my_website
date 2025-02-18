@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    留言板
+{% endblock %}
+{% block content %}
+    <form method="请留言：">
+        Post: <input type="text" name="content" required>
+        <input type="submit" value="提交" >
+    </form>
+    {% for post in posts %}
+    <hr>
+    {{ post.content|e }}
+    <p>当前留言用户: {{ post.username }}</p>
+    {% if post.username == username or privilege == 'root' %}
+    <form method="post" action="/message_board/delete">
+        <input type="hidden" name="id" value="{{ post.id }}">
+        <input type="submit" value="删除">
+    </form>
+    {% endif %}
+    {% endfor %}
+{% endblock %}

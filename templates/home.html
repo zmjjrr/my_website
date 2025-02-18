@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    主页
+{% endblock %}
+
+{% block content %}
+    <h1>这里是zmjjrr的网站</h1>
+    <p>链接</p>
+    <hr>
+    <a href="/hello">点击前往欢迎界面</a>
+    <br>
+    <a href="/sbEncryptor">点击前往傻比加密器</a>
+    <br>
+    <a href="/message_board">点击前往留言板</a>
+    <br>
+    {% if username %}
+    <p>你已登录，用户名为 {{ username }}，权限为 {{ privilege }} <a href="/logout">注销</a></p>
+    {% else %}
+    <p>你还未登录，<a href="/login">登录</a></p>
+    {% endif %}
+{% endblock %}

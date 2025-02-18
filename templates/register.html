@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+    注册
+{% endblock %}
+{% block content %}
+<div class="container" id="register-container">
+    <h2>注册</h2>
+    <form id="register-form" method="post">
+        <div class="form-group">
+            <label for="register-username">用户名</label>
+            <input type="text" id="register-username" name="register-username" required>
+        </div>
+        <div class="form-group">
+            <label for="register-password">密码</label>
+            <input type="password" id="register-password" name="register-password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">确认密码</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">注册</button>
+        </div>
+    </form>
+    <div class="switch-link">
+        已有账号？<a href="{{ url_for('login') }}">登录</a>
+    </div>
+</div>
+{% endblock %}
